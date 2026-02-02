@@ -1,5 +1,6 @@
 package ru.example.game;
 
+import ru.example.config.Config;
 import ru.example.downloader.OkvedCache;
 import ru.example.exeption.ExitGameException;
 import ru.example.exeption.okved.*;
@@ -22,7 +23,11 @@ import java.util.Scanner;
  */
 public class OkvedGame {
 
-    private static final String OKVED_JSON_URL = "https://raw.githubusercontent.com/bergstar/testcase/refs/heads/master/okved.json";
+    private static final String OKVED_JSON_URL;
+
+    static {
+        OKVED_JSON_URL = Config.getOkvedJsonUrl();
+    }
 
     private final Scanner scanner;
     private final OkvedCache okvedCache;
